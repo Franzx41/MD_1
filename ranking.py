@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pandas as pd
 from distancia import jaccard_sim, simpson_corr, hamming_dist
 
