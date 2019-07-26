@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import numpy as np
 
 
@@ -48,7 +50,7 @@ def simpson_corr(bin_features1, bin_features2):
 
     >>> a = [True, True, False, False, False]
     >>> b = [True, False, True, True, False]
-    >>> simpson_sim(a, b)
+    >>> simpson_corr(a, b)
     0.5
     
     """
@@ -57,7 +59,10 @@ def simpson_corr(bin_features1, bin_features2):
     intercecao = np.logical_and(bin_features1, bin_features2)
     valores01 = np.logical_and(np.logical_not(bin_features1), bin_features2)
     valores10 = np.logical_and(bin_features1, np.logical_not(bin_features2))
-    result = intercecao.sum()/float(min(intercecao.sum()+valores01.sum(), intercecao.sum()+valores10.sum()))
+    denominador = min(intercecao.sum()+valores01.sum(), intercecao.sum()+valores10.sum())
+    if denominador == 0:
+        denominador = 1
+    result = intercecao.sum()/float(denominador)
 
     return result
 
