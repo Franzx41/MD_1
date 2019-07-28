@@ -75,11 +75,11 @@ class Ui(wx.Frame):
 
     def onSearchBtnClick(self, event):
         if self.selectedHero is None:
-            print "Heroi não selecionado"
+            print ("Heroi não selecionado")
             return
         features = [self.dataset.columns[i + 1] for i in range(self.ckboxList.GetCount()) if self.ckboxList.IsChecked(i)]
         if len(features) == 0:
-            print "Features não selecionadas"
+            print ("Features não selecionadas")
             return
         #index = self.list_ctrl.GetFirstSelected()
         self.list_ctrl.DeleteAllItems()
@@ -87,7 +87,7 @@ class Ui(wx.Frame):
         #features = ["Agility", "Accelerated Healing", "Lantern Power Ring", "Dimensional Awareness"]
         print("Buscando por " + "'" + str(self.selectedHero) + "'")
         print("Features: ")
-        print features
+        print (features)
         result = ranking(self.dataset.copy(), features, str(self.selectedHero), metodo=self.combo.GetValue())
         result = result[0:10]
         result = result.iloc[:, ::-1]
