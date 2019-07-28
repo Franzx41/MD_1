@@ -22,8 +22,10 @@ def jaccard_sim(bin_features1, bin_features2):
     intercecao = np.logical_and(bin_features1, bin_features2)
 
     uniao = np.logical_or(bin_features1, bin_features2)
-
-    return intercecao.sum() / float(uniao.sum())
+    if uniao.sum() == 0:
+        return 1;
+    else:
+        return intercecao.sum() / float(uniao.sum())
 
 def hamming_dist(bin_features1, bin_features2):
     """ Conta o número de features que não correspondem.
