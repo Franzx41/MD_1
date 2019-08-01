@@ -22,6 +22,7 @@ def jaccard_sim(bin_features1, bin_features2):
     intercecao = np.logical_and(bin_features1, bin_features2)
 
     uniao = np.logical_or(bin_features1, bin_features2)
+    # caso em que todos os poderes dos dois personagens é False
     if uniao.sum() == 0:
         return 1;
     else:
