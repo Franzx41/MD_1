@@ -37,7 +37,11 @@ class Ui(wx.Frame):
 
         cancelButton = wx.Button(panel, label='Cancelar', size=(70, 30))
         cancelButton.Bind(wx.EVT_BUTTON, self.onBackBtnClick) 
-        hbox.Add(cancelButton, 0, wx.ALL|wx.LEFT, 5) 
+        hbox.Add(cancelButton, 0, wx.ALL|wx.LEFT, 5)
+
+        # = wx.Button(panel, label='Selecionar Tudo', size=(70, 30))
+        #selectAllButton.Bind(wx.EVT_BUTTON, self.onSelectAllBtnClick) 
+        #hbox.Add(selectAllButton, 0, wx.ALL|wx.LEFT, 5)  
 
         searchButton = wx.Button(panel, label='Buscar', size=(70, 30))
         searchButton.Bind(wx.EVT_BUTTON, self.onSearchBtnClick) 
@@ -51,6 +55,12 @@ class Ui(wx.Frame):
         panel.SetSizer(mainBox)
 
         self.selectedHero = None
+
+
+    #def onSelectAllBtnClick(self, event):
+        #for i in self.ckboxList.GetChecked
+        #for i in range(0, ):
+            #print self.ckboxList.GetItem
 
     def OnEnterPressed(self,event): 
         self.list_ctrl.DeleteAllItems()
@@ -70,6 +80,7 @@ class Ui(wx.Frame):
     def onBackBtnClick(self, event):
         self.selectedHero = None
         self.list_ctrl.DeleteAllItems()
+        self.list_ctrl.DeleteAllColumns()
         self.__show_dataset(self.dataset)
         self.SetTitle('Analisador de Heróis')
 
