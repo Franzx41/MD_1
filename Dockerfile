@@ -1,7 +1,7 @@
 #To build
 # sudo docker build -t md_2 .
 #To open jupyter
-# sudo docker run -p 8888:8888 md_2
+# sudo docker run -p 8888:8888 -v <"where you want to save your new notebooks(full path)">:/home/demo md_2
 
 FROM ubuntu:19.04
 
